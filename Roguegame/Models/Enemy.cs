@@ -5,24 +5,16 @@ using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Roguegame.Models
+namespace Roguegame.Repository
 {
-    internal class Enemy
+    internal class Enemy : Entity
     {
-        string name;
-        int health;
-        int energy = 10;
-
-        public Enemy (string name, int health) //Constructor
+        public Enemy(string name, int health, string weapon)
         {
             this.name = name;
-            this.health = health;
+            this.maxHealth = health;
+            this.health = maxHealth;
+            this.weapon = weapon;
         }
-
-        public void Heal ()
-        {
-
-        }
-
     }
 }

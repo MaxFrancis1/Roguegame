@@ -4,19 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Roguegame.Models
+namespace Roguegame.Repository
 {
-    internal class Player
+    internal class Player : Entity
     {
-        string name;
-        int health = 20;
-        int energy = 10;
-
-        public Player (string name) //Constructor
+        public Player(string name, string weapon)
         {
             this.name = name;
+            this.maxHealth = 20;
+            this.health = maxHealth;
+            this.weapon = weapon;
         }
-
-
     }
 }
