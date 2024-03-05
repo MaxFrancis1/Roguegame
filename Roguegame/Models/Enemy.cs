@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Roguegame.Repository
 {
-    internal class Enemy : Entity
+    public class Enemy : Entity
     {
         public Enemy(string name, int health, string weapon)
         {

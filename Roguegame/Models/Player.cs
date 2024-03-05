@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Roguegame.Repository
 {
-    internal class Player : Entity
+    public class Player : Entity
     {
         public Player(string name, string weapon)
         {

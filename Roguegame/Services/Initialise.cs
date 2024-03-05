@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace Roguegame.Services
 {
@@ -12,15 +13,18 @@ namespace Roguegame.Services
         public static void Init()
         {
             Weapons.initList();
-
+            introduction();
+        }
+        public static void introduction()
+        {
             Console.Write("You awaken in a damp cave, you remember your name is: ");
             string name = Console.ReadLine();
-            createPlayer(name);
+
             Console.WriteLine($"That's right, {name}. You start to remember where you are, and your purpose. Kill, kill them all.");
-        }
-        public static void createPlayer(string playerName)
-        {
-            Player player = new Player(playerName, "Fists");
+            Console.WriteLine("You make your way outside of the cave and an enemy Goblin appears infront of you, as if you are in a game.");
+            Console.WriteLine("You prepare for battle. (Type Attack to start the onslaught)");
+            
+            RunTime.runGame(name, "Fists");
         }
     }
 }

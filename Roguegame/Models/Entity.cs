@@ -26,7 +26,7 @@ namespace Roguegame.Repository
                 health += amount;
             }
         }
-        public bool takeDamage(int amount)
+        public bool Damage(int amount)
         {
             if (health - amount <= 0)
             {
