@@ -10,12 +10,13 @@ namespace Roguegame.Services
 {
     public static class Initialise
     {
-        public static void Init()
+        public static string Init()
         {
             Weapons.initList();
-            introduction();
+            Enemies.initList();
+            return introduction();
         }
-        public static void introduction()
+        public static string introduction()
         {
             Console.Write("You awaken in a damp cave, you remember your name is: ");
             string name = Console.ReadLine();
@@ -23,8 +24,8 @@ namespace Roguegame.Services
             Console.WriteLine($"That's right, {name}. You start to remember where you are, and your purpose. Kill, kill them all.");
             Console.WriteLine("You make your way outside of the cave and an enemy Goblin appears infront of you, as if you are in a game.");
             Console.WriteLine("You prepare for battle. (Type Attack to start the onslaught)");
-            
-            RunTime.runGame(name, "Fists");
+
+            return name;
         }
     }
 }

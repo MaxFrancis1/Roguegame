@@ -9,7 +9,7 @@ namespace Roguegame.Repository
 {
     public static class Weapons
     {
-        private static Dictionary<string, int> weaponList = new Dictionary<string, int>();
+        public static Dictionary<string, int> weaponList = new Dictionary<string, int>();
         
         public static void initList()
         {

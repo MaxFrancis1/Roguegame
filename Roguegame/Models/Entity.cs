@@ -36,6 +36,6 @@ namespace Roguegame.Repository
                 health -= amount;
                 return true;
             }
-        }
+        }// add gets to see health
     }
 }

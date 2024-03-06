@@ -9,7 +9,8 @@ namespace Roguegame.Repository
 {
     public class Enemy : Entity
     {
-        public Enemy(string name, int health, string weapon)
+        public int id;
+        public Enemy(int id, string name, int health, string weapon)
         {
             this.name = name;
             this.maxHealth = health;

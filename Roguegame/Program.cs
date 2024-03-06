@@ -14,13 +14,21 @@ namespace Roguegame
 
         static void Main(string[] args)
         {
-            Initialise.Init();
-            Player player = new Player(name, weapon);
+            string name = Initialise.Init();
+            List<Enemy> enemies = new List<Enemy>();
+            Player player = new Player(name, "Fists");
 
-            for (int i; i > 99; i++)
+            
+            
+            for (int i = 0; i < 50; i++)
             {
-                //Enemy enemy = new Enemy(name, weapon);
+                Console.WriteLine(i); //dev
 
+                //want to create a while loop and get health so as long as its above 0 the player is able to attack.
+                RandomService.NewEnemy(out string eName, out int eHealth, out string eWeapon);
+                enemies.Add(new Enemy(i, eName, eHealth, eWeapon));
+
+                Console.WriteLine(enemies[i]);
 
 
                 Console.ReadLine();
