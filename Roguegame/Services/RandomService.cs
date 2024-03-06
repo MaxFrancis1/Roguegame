@@ -48,5 +48,13 @@ namespace Roguegame.Services
                 return (enemy.Key, enemy.Value);
             }
         }
+        public static int RandomHeal()
+        {
+            return random.Next(1, 11);
+        }
+        public static int RandomDamage(int maxAttack)
+        {
+            return (random.Next(1, maxAttack));
+        }
     }
 }

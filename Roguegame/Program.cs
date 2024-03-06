@@ -23,13 +23,24 @@ namespace Roguegame
             for (int i = 0; i < 50; i++)
             {
                 Console.WriteLine(i); //dev
-
-                //want to create a while loop and get health so as long as its above 0 the player is able to attack.
                 RandomService.NewEnemy(out string eName, out int eHealth, out string eWeapon);
                 enemies.Add(new Enemy(i, eName, eHealth, eWeapon));
+                Console.WriteLine(enemies[i]); //dev
 
-                Console.WriteLine(enemies[i]);
-
+                //want to create a while loop and get health so as long as its above 0 the player is able to attack.
+                while (enemies[i].GetHealth() == 0 || player.GetHealth() == 0)
+                {
+                    switch (Console.ReadLine().ToLower())
+                    {
+                        case "attack":
+                            enemies[i].Damage(Weapons.returnMaxAttack(player.weapon));
+                            break;
+                        case "heal":
+                            player.Heal(RandomService.RandomHeal());
+                            break;
+                    }
+                }
+                //add in if/switch player dead etc etc or you have killed the enemy (chance for drop?)
 
                 Console.ReadLine();
             }

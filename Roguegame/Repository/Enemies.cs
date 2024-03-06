@@ -9,7 +9,6 @@ namespace Roguegame.Repository
     internal class Enemies
     {
         public static Dictionary<string, string> enemyList = new Dictionary<string, string>();
-
         public static void initList()
         {
             enemyList.Clear();
