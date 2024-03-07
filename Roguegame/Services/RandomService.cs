@@ -14,12 +14,9 @@ namespace Roguegame.Services
         private static int enemyGeneratedCount = 0;
         public static (string name, int health,  string weapon) NewEnemy(out string name, out int health, out string weapon)
         {
-            name = null;
-            health = 0;
-            weapon = null;
-            enemyGeneratedCount++;
             RandomEnemy(out name, out weapon);
-            return (name, RandomEnemyHealth(name), weapon);
+            health = RandomEnemyHealth(name);
+            return (name, health, weapon);
         }
         private static int RandomEnemyHealth(string name)
         {
@@ -37,16 +34,24 @@ namespace Roguegame.Services
         {
             name = null;
             weapon = null;
+            enemyGeneratedCount++;
+            KeyValuePair<string, string> enemy;
             if (enemyGeneratedCount < 5)
             {
-                KeyValuePair<string, string> enemy = Enemies.returnEnemyInfo(random.Next(1,3));
-                return (enemy.Key, enemy.Value);
+                enemy = Enemies.returnEnemyInfo(random.Next(1, 2));
+            }
+            else if (enemyGeneratedCount >= 5 && enemyGeneratedCount < 10)
+            {
+                enemy = Enemies.returnEnemyInfo(random.Next(1, 4));
             }
             else
             {
-                KeyValuePair<string, string> enemy = Enemies.returnEnemyInfo(random.Next(0, enemyList.Count));
-                return (enemy.Key, enemy.Value);
+                int listCount = enemyList.Count();
+                enemy = Enemies.returnEnemyInfo(random.Next(1, listCount));
             }
+            name = Enemies.returnEnemyName(enemy.Key);
+            weapon = enemy.Value;
+            return (name, weapon);
         }
         public static int RandomHeal()
         {
@@ -54,7 +59,20 @@ namespace Roguegame.Services
         }
         public static int RandomDamage(int maxAttack)
         {
-            return (random.Next(1, maxAttack));
+            return (random.Next(1, maxAttack+1));
+        }
+        public static bool RandomWeaponDrop()
+        {
+            int randomNumber = random.Next(100);
+
+            if (randomNumber < 33)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }

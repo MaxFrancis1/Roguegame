@@ -23,7 +23,7 @@ namespace Roguegame.Services
 
             Console.WriteLine($"That's right, {name}. You start to remember where you are, and your purpose. Kill, kill them all.");
             Console.WriteLine("You make your way outside of the cave and an enemy Goblin appears infront of you, as if you are in a game.");
-            Console.WriteLine("You prepare for battle. (Type Attack to start the onslaught)");
+            Console.WriteLine("You prepare for battle. (Type Enter to start the onslaught)");
 
             return name;
         }

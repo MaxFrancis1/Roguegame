@@ -13,7 +13,6 @@ namespace Roguegame.Repository
         public int maxHealth;
         public int health;
         public string weapon;
-        public int energy = 10;
 
         public void Heal(int amount)
         {
@@ -26,17 +25,24 @@ namespace Roguegame.Repository
                 health += amount;
             }
         }
-        public bool Damage(int amount)
+        public void Damage(int amount)
         {
             if (health - amount <= 0)
             {
-                return false;
+                health = 0;
             } else
             {
                 health -= amount;
-                return true;
             }
         }
         public int GetHealth() { return health; }
+        public void EquipWeapon(string weaponDrop)
+        {
+            weapon = weaponDrop;
+        }
+        public string ReturnInfoAsString()
+        {
+            return ($"Name: {name} \nHealth: {health} \nWeapon: {weapon}\n");
+        }
     }
 }
